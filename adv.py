@@ -15,6 +15,8 @@ class Room:
         self.w_to = None
         self.items=[]
         self.branchtable={}
+        self.branchtable[GET] = self.get_item
+        self.branchtable[DROP] = self.drop_item
     def get_item(self, item):
       self.items.append(item)
     def drop_item(self, item):
@@ -29,6 +31,8 @@ class Player:
         self.name = name
         self.location = location
         self.branchtable={}
+        self.branchtable[GET] = self.get_item
+        self.branchtable[DROP] = self.drop_item
     def get_item(self, item):
       self.backpack.append(item)
     def drop_item(self, item):
